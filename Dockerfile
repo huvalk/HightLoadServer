@@ -15,8 +15,8 @@ COPY ./httpd.conf /etc/httpd.conf
 RUN g++ --version
 RUN gcc --version
 
-RUN cmake . -DCMAKE_CXX_COMPILER=g++-9
-RUN make CXX=g++-9
+RUN cmake .
+RUN make
 
 EXPOSE 80
 
