@@ -1,12 +1,13 @@
 #include "ConfigParser.h"
-#include <filesystem>
+//#include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 std::pair<bool, std::shared_ptr<Config>> ConfigParser::parse(const std::string& path = "./httpd.conf")
 {
-    if (!std::filesystem::exists(path))
-        return std::make_pair(false, nullptr);
+//    if (!std::filesystem::exists(path))
+//        return std::make_pair(false, nullptr);
 
     std::ifstream conf;
     conf.open(path, std::ios::in);
