@@ -8,9 +8,9 @@ COPY . /hh
 
 COPY ./httpd.conf /etc/httpd.conf
 
-RUN cmake .
+RUN cmake . -DCMAKE_CXX_COMPILER=g++
 RUN make
 
 EXPOSE 80
 
-CMD ./highload
+CMD ./bin/highload

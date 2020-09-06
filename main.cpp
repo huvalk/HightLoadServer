@@ -4,7 +4,7 @@
 
 int main()
 {
-    auto result = ConfigParser::parse("../httpd.conf");
+    auto result = ConfigParser::parse("/etc/httpd.conf");
     if (!result.first)
     {
         std::cout << "Invalid config";
