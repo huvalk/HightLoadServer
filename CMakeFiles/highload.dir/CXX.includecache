@@ -33,6 +33,8 @@ Config.h
 /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp
 ConfigParser.h
 /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.h
+filesystem
+-
 fstream
 -
 iostream
