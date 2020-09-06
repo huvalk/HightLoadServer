@@ -4,7 +4,7 @@ project( highload )
 set( CMAKE_CXX_STANDARD 17 )
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin )
 
-find_package( Boost 1.66 REQUIRED COMPONENTS system filesystem thread)
+find_package( Boost 1.65 REQUIRED COMPONENTS system filesystem thread)
 include_directories( SYSTEM ${Boost_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 add_executable( highload main.cpp src/ConfigParser.cpp src/Config.cpp
