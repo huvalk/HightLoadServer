@@ -3,7 +3,7 @@ project( highload )
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin )
+#set( EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin )
 
 find_package( Boost 1.65 REQUIRED COMPONENTS system filesystem thread)
 include_directories( SYSTEM ${Boost_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/include )
