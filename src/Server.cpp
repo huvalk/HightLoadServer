@@ -1,6 +1,7 @@
 #include <boost/asio/signal_set.hpp>
 #include <iostream>
 #include "Server.h"
+#include <thread>
 #include "ThreadRoutine.h"
 
 Server::Server(std::shared_ptr<Config> conf) //noexcept
