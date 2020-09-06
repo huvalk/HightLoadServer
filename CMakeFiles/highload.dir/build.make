@@ -60,106 +60,106 @@ include CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/main.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/main.cpp.o: main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/highload.dir/main.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/main.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/main.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp
 
 CMakeFiles/highload.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp > CMakeFiles/highload.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp > CMakeFiles/highload.dir/main.cpp.i
 
 CMakeFiles/highload.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp -o CMakeFiles/highload.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/main.cpp -o CMakeFiles/highload.dir/main.cpp.s
 
 CMakeFiles/highload.dir/src/ConfigParser.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/ConfigParser.cpp.o: src/ConfigParser.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/highload.dir/src/ConfigParser.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/ConfigParser.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/ConfigParser.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp
 
 CMakeFiles/highload.dir/src/ConfigParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/ConfigParser.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp > CMakeFiles/highload.dir/src/ConfigParser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp > CMakeFiles/highload.dir/src/ConfigParser.cpp.i
 
 CMakeFiles/highload.dir/src/ConfigParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/ConfigParser.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp -o CMakeFiles/highload.dir/src/ConfigParser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ConfigParser.cpp -o CMakeFiles/highload.dir/src/ConfigParser.cpp.s
 
 CMakeFiles/highload.dir/src/Config.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/Config.cpp.o: src/Config.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/highload.dir/src/Config.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Config.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Config.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp
 
 CMakeFiles/highload.dir/src/Config.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/Config.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp > CMakeFiles/highload.dir/src/Config.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp > CMakeFiles/highload.dir/src/Config.cpp.i
 
 CMakeFiles/highload.dir/src/Config.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/Config.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp -o CMakeFiles/highload.dir/src/Config.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Config.cpp -o CMakeFiles/highload.dir/src/Config.cpp.s
 
 CMakeFiles/highload.dir/src/Server.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/Server.cpp.o: src/Server.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/highload.dir/src/Server.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Server.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Server.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp
 
 CMakeFiles/highload.dir/src/Server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/Server.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp > CMakeFiles/highload.dir/src/Server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp > CMakeFiles/highload.dir/src/Server.cpp.i
 
 CMakeFiles/highload.dir/src/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/Server.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp -o CMakeFiles/highload.dir/src/Server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Server.cpp -o CMakeFiles/highload.dir/src/Server.cpp.s
 
 CMakeFiles/highload.dir/src/Client.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/Client.cpp.o: src/Client.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/highload.dir/src/Client.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Client.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Client.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp
 
 CMakeFiles/highload.dir/src/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/Client.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp > CMakeFiles/highload.dir/src/Client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp > CMakeFiles/highload.dir/src/Client.cpp.i
 
 CMakeFiles/highload.dir/src/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/Client.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp -o CMakeFiles/highload.dir/src/Client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Client.cpp -o CMakeFiles/highload.dir/src/Client.cpp.s
 
 CMakeFiles/highload.dir/src/ThreadRoutine.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/ThreadRoutine.cpp.o: src/ThreadRoutine.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/highload.dir/src/ThreadRoutine.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/ThreadRoutine.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/ThreadRoutine.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp
 
 CMakeFiles/highload.dir/src/ThreadRoutine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/ThreadRoutine.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp > CMakeFiles/highload.dir/src/ThreadRoutine.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp > CMakeFiles/highload.dir/src/ThreadRoutine.cpp.i
 
 CMakeFiles/highload.dir/src/ThreadRoutine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/ThreadRoutine.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp -o CMakeFiles/highload.dir/src/ThreadRoutine.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/ThreadRoutine.cpp -o CMakeFiles/highload.dir/src/ThreadRoutine.cpp.s
 
 CMakeFiles/highload.dir/src/Response.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/Response.cpp.o: src/Response.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/highload.dir/src/Response.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Response.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Response.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp
 
 CMakeFiles/highload.dir/src/Response.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/Response.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp > CMakeFiles/highload.dir/src/Response.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp > CMakeFiles/highload.dir/src/Response.cpp.i
 
 CMakeFiles/highload.dir/src/Response.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/Response.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp -o CMakeFiles/highload.dir/src/Response.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Response.cpp -o CMakeFiles/highload.dir/src/Response.cpp.s
 
 CMakeFiles/highload.dir/src/Request.cpp.o: CMakeFiles/highload.dir/flags.make
 CMakeFiles/highload.dir/src/Request.cpp.o: src/Request.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/highload.dir/src/Request.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Request.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/highload.dir/src/Request.cpp.o -c /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp
 
 CMakeFiles/highload.dir/src/Request.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/highload.dir/src/Request.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp > CMakeFiles/highload.dir/src/Request.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp > CMakeFiles/highload.dir/src/Request.cpp.i
 
 CMakeFiles/highload.dir/src/Request.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/highload.dir/src/Request.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp -o CMakeFiles/highload.dir/src/Request.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huvalk/CLionProjects/TECHNOPARK/highload/src/Request.cpp -o CMakeFiles/highload.dir/src/Request.cpp.s
 
 # Object files for target highload
 highload_OBJECTS = \
