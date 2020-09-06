@@ -8,6 +8,9 @@ COPY . /hh
 
 COPY ./httpd.conf /etc/httpd.conf
 
+
+CMD g++ -v
+
 RUN cmake . -DCMAKE_CXX_COMPILER=g++
 RUN make CXX=g++
 
