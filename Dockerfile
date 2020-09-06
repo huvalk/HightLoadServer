@@ -3,7 +3,7 @@ FROM gcc:latest as build
 RUN apt-get update && \
     apt-get install -y \
       libboost-dev libboost-program-options-dev \
-      libgtest-dev \
+      libgtest-all-dev \
       cmake
 
 WORKDIR /hh
