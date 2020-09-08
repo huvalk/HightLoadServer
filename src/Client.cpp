@@ -5,12 +5,16 @@
 #include "Response.h"
 
 
-Client::Client(io_service& ioService, std::shared_ptr<Config> conf) noexcept
+Client::Client(io_service& ioService, std::string confPath) noexcept
     : m_socket(ioService),
-    m_config(conf),
+    m_rootPath(confPath),
     m_buffer()
 {
 
+}
+
+void Client::run() {
+    waitForSocketAsync();
 }
 
 void Client::waitForSocketAsync()
@@ -37,12 +41,16 @@ void Client::readSocket(const error_code& error, size_t bytes_transferred)
         std::vector<Header> headers;
 
         if (Request::parseRequest(m_buffer.elems, method, uri, version, headers)) {
-            m_response = Response::startProcessing(method, m_config->getRoot(), uri, version);
+            std::cout << this << std::endl << std::flush;
+            m_response = "awd";
+            m_response = Response::startProcessing(method, m_rootPath, uri, version);
             writeSocket();
+            m_socket.close();
         } else {
             return;
         }
     }
+
 }
 
 void Client::writeSocket()

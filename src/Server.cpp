@@ -23,8 +23,7 @@ void Server::start()
 
 void Server::connectAcceptor()
 {
-    m_oldClient = m_newClient;
-    m_newClient.reset(new Client(m_ioService, m_conf));
+    m_newClient.reset(new Client(m_ioService, m_conf->getRoot()));
     m_acceptor.async_accept(
             m_newClient->m_socket,
             std::bind(&Server::acceptConnection, this, std::placeholders::_1)
@@ -34,12 +33,12 @@ void Server::connectAcceptor()
 void Server::acceptConnection(const boost::system::error_code &error)
 {
     if (!error) {
-        std::thread (ThreadRoutine, m_newClient, std::ref(m_threadsActive)).detach();
+        //  .detach()?
+        std::thread t(std::bind(&Client::run, m_newClient));
 
-        std::cout << "no error " << std::endl << std::flush;
+        connectAcceptor();
     } else {
         std::cerr << "Accept error: " << error.message() << std::endl;
     }
 
-    connectAcceptor();
 }

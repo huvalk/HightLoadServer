@@ -11,6 +11,9 @@ class Server
 {
 public:
     explicit Server(std::shared_ptr<Config> conf);// noexcept;
+    Server(const Server&) = delete;
+    Server& operator=(const Server&) = delete;
+
     void start();
 
 private:
@@ -22,6 +25,5 @@ private:
     tcp::acceptor m_acceptor;
     std::shared_ptr<Config> m_conf;
     std::shared_ptr<Client> m_newClient;
-    std::shared_ptr<Client> m_oldClient;
 };
 

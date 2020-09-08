@@ -11,11 +11,12 @@ public:
     std::string getRoot() const;
     uint64_t getThreadLimit() const;
     uint16_t getPort() const;
+    void setPort(const uint16_t port);
     uint16_t getCpuLimit() const;
 
 private:
     const std::string m_root;
     const uint64_t m_threadLimit;
     const uint16_t m_cpuLimit;
-    const uint16_t m_port;
+    uint16_t m_port;
 };

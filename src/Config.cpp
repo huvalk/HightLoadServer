@@ -28,3 +28,7 @@ uint16_t Config::getCpuLimit() const
 {
     return m_cpuLimit;
 }
+
+void Config::setPort(const uint16_t port) {
+    m_port = port;
+}

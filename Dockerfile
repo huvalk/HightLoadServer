@@ -10,6 +10,7 @@ WORKDIR /hh
 COPY . /hh
 
 COPY ./httpd.conf /etc/httpd.conf
+COPY ./httptest /var/www/html/httptest
 
 
 RUN g++ --version
@@ -20,4 +21,4 @@ RUN make
 
 EXPOSE 80
 
-CMD ./bin/highload
+CMD ./highload /etc/httpd.conf 80

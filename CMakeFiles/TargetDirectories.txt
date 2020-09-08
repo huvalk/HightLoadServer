@@ -1,3 +1,0 @@
-/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles/rebuild_cache.dir
-/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles/highload.dir
-/home/huvalk/CLionProjects/TECHNOPARK/highload/CMakeFiles/edit_cache.dir
