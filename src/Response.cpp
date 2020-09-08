@@ -5,7 +5,7 @@
 #define MAX_FILE_BUFFER_SIZE 1024
 #define MAX_TIME_BUFFER_SIZE 256
 
-std::string Response::startProcessing(const std::string &method, const std::string &document_root, std::string &uri, char version) {
+std::string Response::startProcessing(const std::string &method, const std::string document_root, std::string &uri, char version) {
     std::string response_buffer = "HTTP/1.";
     response_buffer.push_back(version);
     response_buffer.push_back(' ');
@@ -29,6 +29,7 @@ std::string Response::startProcessing(const std::string &method, const std::stri
 
 std::string Response::processMethod(const std::string &method, const std::string &document_root, std::string &uri,
                                     std::vector<Header> &headers) {
+
     std::string full_path = document_root + uri;
 
     size_t last_slash_index = uri.find_last_of('/');

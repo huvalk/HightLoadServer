@@ -8,7 +8,7 @@
 class Response {
 public:
     static std::string
-    startProcessing(const std::string &method, const std::string &document_root, std::string &uri, char version);
+    startProcessing(const std::string &method, const std::string document_root, std::string &uri, char version);
 
 private:
     static std::string processMethod(const std::string &method, const std::string &document_root, std::string &uri,

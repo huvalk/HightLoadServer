@@ -22,7 +22,7 @@ void Server::start()
 
 void Server::connectAcceptor()
 {
-    m_newClient.reset(new Client(m_conf->getRoot()));
+    m_newClient.reset(new Client(m_ioService, m_conf->getRoot(), m_threadsActive));
     std::cout << "?" << m_threadsActive << std::endl << std::flush;
     m_acceptor.async_accept(
             m_newClient->m_socket,
@@ -41,7 +41,7 @@ void Server::acceptConnection(const boost::system::error_code &error)
 //        }
 
         m_threadsActive++;
-        std::thread (std::bind(&Client::run, m_newClient, m_threadsActive)).detach();
+        std::thread (std::bind(&Client::waitForSocketAsync, m_newClient)).detach();
 
         connectAcceptor();
     } else {
