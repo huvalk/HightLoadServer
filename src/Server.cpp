@@ -34,7 +34,7 @@ void Server::acceptConnection(const boost::system::error_code &error)
 {
     if (!error) {
         //  .detach()?
-        std::thread t(std::bind(&Client::run, m_newClient));
+        std::thread (std::bind(&Client::run, m_newClient)).detach();
 
         connectAcceptor();
     } else {

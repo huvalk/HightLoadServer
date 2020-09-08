@@ -3,6 +3,7 @@
 #include <boost/asio/io_service.hpp>
 #include <boost/array.hpp>
 #include <boost/asio/ip/tcp.hpp>
+#include <boost/asio/streambuf.hpp>
 #include "Config.h"
 #include "Types.h"
 
@@ -19,6 +20,7 @@ private:
 
 //    io_service& m_ioService;
     boost::array<char, 1024> m_buffer;
+    boost::asio::streambuf buf;
     std::string m_response;
     std::string m_rootPath;
 };
