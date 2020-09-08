@@ -4,6 +4,7 @@
 #include <Client.h>
 #include <Config.h>
 #include <memory>
+#include <mutex>
 #include <set>
 #include "Types.h"
 

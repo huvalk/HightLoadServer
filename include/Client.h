@@ -5,6 +5,7 @@
 #include <boost/asio/ip/tcp.hpp>
 #include <boost/asio/streambuf.hpp>
 #include "Config.h"
+#include <mutex>
 #include "Types.h"
 
 class Client: public std::enable_shared_from_this<Client>

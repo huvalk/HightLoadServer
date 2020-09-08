@@ -1,6 +1,7 @@
 #include <boost/asio.hpp>
 #include "Client.h"
 #include <iostream>
+#include <mutex>
 #include "Response.h"
 #include "Request.h"
 
@@ -18,7 +19,7 @@ Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActi
 void Client::waitForSocketAsync()
 {
     std::cout << "+" << m_threadsActive << std::endl << std::flush;
-//    m_ioService.run();
+    m_ioService.run();
     m_socket.async_read_some(
             boost::asio::buffer(m_buffer),
             std::bind(&Client::readSocket, shared_from_this(),
@@ -73,7 +74,6 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
     threadMutex.lock();
     m_threadsActive += 1;
     threadMutex.unlock();
-    std::cout << "+" << m_threadsActive << std::endl << std::flush;
 
 
     size_t readSize = 0;
@@ -99,8 +99,6 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
             std::cerr << "Client exception: " << x.what() << std::endl << std::flush;
         }
     }
-
-    std::cout << "-" << m_threadsActive << std::endl << std::flush;
 
     threadMutex.lock();
     m_threadsActive -= 1;
