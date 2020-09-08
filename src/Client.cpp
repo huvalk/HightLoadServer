@@ -6,18 +6,19 @@
 
 
 Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActive) noexcept
-    : m_ioService(ioService),
+    : m_ioService(),
     m_threadsActive(threadsActive),
-    m_socket(ioService),
+    m_socket(m_ioService),
     m_rootPath(std::move(confPath)),
     m_buffer()
 {
+
 }
 
 void Client::waitForSocketAsync()
 {
     std::cout << "+" << m_threadsActive << std::endl << std::flush;
-    m_ioService.run();
+//    m_ioService.run();
     m_socket.async_read_some(
             boost::asio::buffer(m_buffer),
             std::bind(&Client::readSocket, shared_from_this(),
@@ -67,11 +68,11 @@ void Client::writeSocket(const boost::system::error_code &error, size_t bytes_tr
 }
 
 
-void Client::run(int64_t& m_threadsActive)
+void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
 {
-//    threadMutex.lock();
-//    m_threadsActive += 1;
-//    threadMutex.unlock();
+    threadMutex.lock();
+    m_threadsActive += 1;
+    threadMutex.unlock();
     std::cout << "+" << m_threadsActive << std::endl << std::flush;
 
 
@@ -101,7 +102,7 @@ void Client::run(int64_t& m_threadsActive)
 
     std::cout << "-" << m_threadsActive << std::endl << std::flush;
 
-//    threadMutex.lock();
-//    m_threadsActive -= 1;
-//    threadMutex.unlock();
+    threadMutex.lock();
+    m_threadsActive -= 1;
+    threadMutex.unlock();
 }

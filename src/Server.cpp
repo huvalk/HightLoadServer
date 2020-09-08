@@ -34,14 +34,14 @@ void Server::acceptConnection(const boost::system::error_code &error)
 {
     if (!error) {
         std::cout << 1 << std::flush;
-//        while (m_threadsActive >= m_conf->getThreadLimit())
-//        {
-//            std::cout << 2 << std::flush;
-//            std::cout << m_threadsActive << std::endl << std::flush;
-//        }
+        while (m_threadsActive >= m_conf->getThreadLimit())
+        {
+            std::cout << 2 << std::flush;
+            std::cout << m_threadsActive << std::endl << std::flush;
+        }
 
         m_threadsActive++;
-        std::thread (std::bind(&Client::waitForSocketAsync, m_newClient)).detach();
+        std::thread (std::bind(&Client::run, m_newClient, std::ref(m_threadsActive), std::ref(m_threadMutex))).detach();
 
         connectAcceptor();
     } else {

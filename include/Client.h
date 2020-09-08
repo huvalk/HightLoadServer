@@ -11,15 +11,15 @@ class Client: public std::enable_shared_from_this<Client>
 {
 public:
     explicit Client(io_service& ioService, std::string confPath, int64_t& threadsActive) noexcept;
-    void run(int64_t& m_threadsActive);
+    void run(int64_t& m_threadsActive, std::mutex& threadMutex);
     void waitForSocketAsync();
 
+    io_service m_ioService;
     tcp::socket m_socket;
 private:
     void readSocket(const error_code& error, size_t bytes_transferred);
     void writeSocket(const boost::system::error_code &error, size_t bytes_transferred);
 
-    io_service& m_ioService;
     boost::array<char, 1024> m_buffer;
     std::string m_response;
     std::string m_rootPath;

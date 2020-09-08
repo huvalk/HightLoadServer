@@ -24,7 +24,7 @@ private:
     tcp::acceptor m_acceptor;
     std::shared_ptr<Config> m_conf;
     std::shared_ptr<Client> m_newClient;
-//    std::mutex m_threadMutex;
+    std::mutex m_threadMutex;
     int64_t m_threadsActive;
 };
 
