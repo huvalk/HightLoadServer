@@ -9,18 +9,13 @@
 
 class Client {
 public:
-    explicit Client(io_service& ioService, std::string confPath) noexcept;
-    void run();
-    void waitForSocketAsync();
+    explicit Client(std::string confPath) noexcept;
+    void run(int64_t& m_threadsActive);
 
+    io_service m_ioService;
     tcp::socket m_socket;
 private:
-    void readSocket(const error_code& error, size_t bytes_transferred);
-    void writeSocket();
-
-//    io_service& m_ioService;
     boost::array<char, 1024> m_buffer;
-    boost::asio::streambuf buf;
     std::string m_response;
     std::string m_rootPath;
 };

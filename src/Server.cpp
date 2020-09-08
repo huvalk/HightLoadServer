@@ -2,9 +2,8 @@
 #include <iostream>
 #include "Server.h"
 #include <thread>
-#include "ThreadRoutine.h"
 
-Server::Server(std::shared_ptr<Config> conf) //noexcept
+Server::Server(std::shared_ptr<Config> conf) noexcept
     : m_threadsActive(0),
     m_conf(conf),
     m_acceptor(m_ioService,
@@ -23,7 +22,8 @@ void Server::start()
 
 void Server::connectAcceptor()
 {
-    m_newClient.reset(new Client(m_ioService, m_conf->getRoot()));
+    m_newClient.reset(new Client(m_conf->getRoot()));
+    std::cout << "?" << m_threadsActive << std::endl << std::flush;
     m_acceptor.async_accept(
             m_newClient->m_socket,
             std::bind(&Server::acceptConnection, this, std::placeholders::_1)
@@ -33,8 +33,15 @@ void Server::connectAcceptor()
 void Server::acceptConnection(const boost::system::error_code &error)
 {
     if (!error) {
-        //  .detach()?
-        std::thread (std::bind(&Client::run, m_newClient)).detach();
+        std::cout << 1 << std::flush;
+//        while (m_threadsActive >= m_conf->getThreadLimit())
+//        {
+//            std::cout << 2 << std::flush;
+//            std::cout << m_threadsActive << std::endl << std::flush;
+//        }
+
+        m_threadsActive++;
+        std::thread (std::bind(&Client::run, m_newClient, m_threadsActive)).detach();
 
         connectAcceptor();
     } else {
