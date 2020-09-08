@@ -19,11 +19,6 @@ Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActi
 void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex,
                  Cache& cache, std::shared_mutex& cacheMutex)
 {
-    threadMutex.lock();
-    m_threadsActive += 1;
-    threadMutex.unlock();
-
-
     size_t readSize = 0;
     try
     {

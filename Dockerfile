@@ -18,6 +18,7 @@ RUN gcc --version
 
 RUN cmake .
 RUN make
+RUN echo 'document_root /var/www/html/' >> /etc/httpd.conf
 
 EXPOSE 80
 
