@@ -16,60 +16,8 @@ Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActi
 
 }
 
-void Client::waitForSocketAsync()
-{
-    std::cout << "+" << m_threadsActive << std::endl << std::flush;
-    m_ioService.run();
-    m_socket.async_read_some(
-            boost::asio::buffer(m_buffer),
-            std::bind(&Client::readSocket, shared_from_this(),
-                      std::placeholders::_1,
-                      std::placeholders::_2));
-}
-
-void Client::readSocket(const error_code& error, size_t bytes_transferred)
-{
-    if (error) {
-        if (bytes_transferred == 0) {
-            return;
-        }
-        std::cout << error.message() << " || " << error.value() << " || " << std::endl;
-    } else {
-        std::string method, uri;
-        char version;
-        std::vector<Header> headers;
-
-        if (Request::parseRequest(m_buffer.elems, method, uri, version, headers)) {
-            auto m_response = Response::startProcessing(method, m_rootPath, uri, version);
-
-            m_socket.async_write_some(boost::asio::buffer(m_response),
-                                      std::bind(&Client::writeSocket, shared_from_this(),
-                                                std::placeholders::_1,
-                                                std::placeholders::_2));
-
-//            boost::asio::async_write(
-//                    m_socket,
-//                    boost::asio::buffer(m_response),
-//                    std::bind(&Client::writeSocket, shared_from_this(),
-//                              std::placeholders::_1,
-//                              std::placeholders::_2));
-        } else {
-            return;
-        }
-    }
-}
-
-void Client::writeSocket(const boost::system::error_code &error, size_t bytes_transferred)
-{
-    if (error) {
-        std::cout << error.message() << " || " << error.value() << " || " << std::endl;
-    }
-
-    std::cout << "-" << m_threadsActive << std::endl << std::flush;
-}
-
-
-void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
+void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex,
+                 Cache& cache, std::shared_mutex& cacheMutex)
 {
     threadMutex.lock();
     m_threadsActive += 1;
@@ -77,20 +25,25 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
 
 
     size_t readSize = 0;
-    try {
+    try
+    {
         readSize = m_socket.read_some(boost::asio::buffer(m_buffer));
 
-        std::string method, uri;
-        char version;
-        std::vector<Header> headers;
+        auto response = getCache(cache, cacheMutex, m_buffer);
+        if (response.size() > 0)
+        {
+            boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());
+        } else if (Request::parseRequest(m_buffer.elems, m_method, m_uri, m_version, m_headers))
+        {
+            response = Response::startProcessing(m_method, m_rootPath, m_uri, m_version);
+            addCache(cache, cacheMutex, m_buffer, response);
 
-        if (Request::parseRequest(m_buffer.elems, method, uri, version, headers)) {
-            auto response = Response::startProcessing(method, m_rootPath, uri, version);
             boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());
         }
 
         m_socket.close();
-    } catch(std::exception& x) {
+    } catch(std::exception& x)
+    {
         if (readSize == 0)
         {
             std::cout << "Client exception: " << x.what() << std::endl << std::flush;
@@ -103,4 +56,34 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex)
     threadMutex.lock();
     m_threadsActive -= 1;
     threadMutex.unlock();
+}
+
+void Client::addCache(Cache& cache, std::shared_mutex& cacheMutex,
+                      const boost::array<char, 1024>& key, const std::string& response)
+{
+    cacheMutex.lock();
+    cache.emplace_front(std::make_pair(std::move(key), m_response));
+    if (cache.size() > 10)
+    {
+        cache.pop_back();
+    }
+    cacheMutex.unlock();
+}
+
+std::string Client::getCache(Cache& cache, std::shared_mutex& cacheMutex,
+                             const boost::array<char, 1024>& key) const
+{
+    cacheMutex.lock_shared();
+    size_t size = 0;
+    for(const auto& elem : cache)
+    {
+        size++;
+        if (elem.first == key)
+        {
+            cacheMutex.unlock_shared();
+            return elem.second;
+        }
+    }
+    cacheMutex.unlock_shared();
+    return "";
 }
