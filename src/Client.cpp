@@ -2,8 +2,8 @@
 #include "Client.h"
 #include <iostream>
 #include <mutex>
-#include "Response.h"
-#include "Request.h"
+#include "ResponseProcessor.h"
+#include "RequestProcessor.h"
 
 
 Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActive) noexcept
@@ -28,9 +28,9 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex,
         if (response.size() > 0)
         {
             boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());
-        } else if (Request::parseRequest(m_buffer.elems, m_method, m_uri, m_version, m_headers))
+        } else if (RequestProcessor::parseRequest(m_buffer.elems, m_method, m_uri, m_version, m_headers))
         {
-            response = Response::startProcessing(m_method, m_rootPath, m_uri, m_version);
+            response = ResponseProcessor::startProcessing(m_method, m_rootPath, m_uri, m_version);
             addCache(cache, cacheMutex, m_buffer, response);
 
             boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());

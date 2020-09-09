@@ -1,11 +1,11 @@
-#include "Response.h"
 #include "boost/filesystem.hpp"
 #include <mutex>
+#include "ResponseProcessor.h"
 
 #define MAX_FILE_BUFFER_SIZE 1024
 #define MAX_TIME_BUFFER_SIZE 256
 
-std::string Response::startProcessing(const std::string &method, const std::string document_root, std::string &uri, char version) {
+std::string ResponseProcessor::startProcessing(const std::string &method, const std::string document_root, std::string &uri, char version) {
     std::string response_buffer = "HTTP/1.";
     response_buffer.push_back(version);
     response_buffer.push_back(' ');
@@ -27,8 +27,8 @@ std::string Response::startProcessing(const std::string &method, const std::stri
     return response_buffer;
 }
 
-std::string Response::processMethod(const std::string &method, const std::string &document_root, std::string &uri,
-                                    std::vector<Header> &headers) {
+std::string ResponseProcessor::processMethod(const std::string &method, const std::string &document_root, std::string &uri,
+                                             std::vector<Header> &headers) {
 
     std::string full_path = document_root + uri;
 
@@ -63,18 +63,18 @@ std::string Response::processMethod(const std::string &method, const std::string
     return "404 Not Found";
 }
 
-std::string Response::processUnknownMethod() {
+std::string ResponseProcessor::processUnknownMethod() {
     return "405 Method Not Allowed";
 }
 
-void Response::initHeaders(std::vector<Header> &headers) {
+void ResponseProcessor::initHeaders(std::vector<Header> &headers) {
     headers.push_back(Header{"Server", "gdinx v.1.0.1"});
     headers.push_back(Header{"Date", getDate()});
     headers.push_back(Header{"Connection", "Closed"});
 }
 
-void Response::writeHeaders(const std::string &method, const std::string &code, const std::string &path, std::string &response_buffer,
-                            const std::vector<Header> &headers) {
+void ResponseProcessor::writeHeaders(const std::string &method, const std::string &code, const std::string &path, std::string &response_buffer,
+                                     const std::vector<Header> &headers) {
     for (auto &header : headers) {
         response_buffer += header.key + ": " + header.value + "\r\n";
     }
@@ -99,7 +99,7 @@ void Response::writeHeaders(const std::string &method, const std::string &code, 
     }
 }
 
-std::string Response::getDate() {
+std::string ResponseProcessor::getDate() {
     std::time_t timer = std::time(nullptr);
     char buffer_time[MAX_TIME_BUFFER_SIZE];
     auto time_now = std::strftime(buffer_time, sizeof(buffer_time), "%a, %d %b %Y %H:%M:%S GMT",
@@ -108,7 +108,7 @@ std::string Response::getDate() {
     return std::string(buffer_time, time_now);
 }
 
-std::string Response::getContentType(const std::string &extension) {
+std::string ResponseProcessor::getContentType(const std::string &extension) {
     if (extension == "html") return "text/html";
     if (extension == "css") return "text/css";
     if (extension == "js") return "application/javascript";
