@@ -1,5 +1,4 @@
-#ifndef RESPONSE_H
-#define RESPONSE_H
+#pragma once
 
 #include "Header.h"
 #include <vector>
@@ -26,5 +25,3 @@ private:
 
     static std::string getContentType(const std::string &extension);
 };
-
-#endif //RESPONSE_H

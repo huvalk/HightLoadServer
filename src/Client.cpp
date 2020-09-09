@@ -7,7 +7,7 @@
 
 
 Client::Client(io_service& ioService, std::string confPath, int64_t& threadsActive) noexcept
-    : m_ioService(),
+    : m_ioService(ioService),
     m_threadsActive(threadsActive),
     m_socket(m_ioService),
     m_rootPath(std::move(confPath)),
@@ -41,7 +41,7 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex,
     {
         if (readSize == 0)
         {
-            std::cout << "Client exception: " << x.what() << std::endl << std::flush;
+//            std::cout << "Client exception: " << x.what() << std::endl << std::flush;
         } else
         {
             std::cerr << "Client exception: " << x.what() << std::endl << std::flush;

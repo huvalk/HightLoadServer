@@ -1,5 +1,4 @@
-#ifndef REQUEST_H
-#define REQUEST_H
+#pragma once
 
 #include "Header.h"
 #include <vector>
@@ -23,5 +22,3 @@ private:
 
     static char decodeChar(const char *request, size_t i);
 };
-
-#endif //REQUEST_H

@@ -12,10 +12,6 @@ COPY . /hh
 COPY ./httpd.conf /etc/httpd.conf
 COPY ./httptest /var/www/html/httptest
 
-
-RUN g++ --version
-RUN gcc --version
-
 RUN cmake .
 RUN make
 RUN echo 'document_root /var/www/html/' >> /etc/httpd.conf

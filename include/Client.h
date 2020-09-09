@@ -18,7 +18,7 @@ public:
     void run(int64_t& m_threadsActive, std::mutex& threadMutex,
              Cache& cache, std::shared_mutex& cacheMutex);
 
-    io_service m_ioService;
+    io_service& m_ioService;
     tcp::socket m_socket;
 private:
     void addCache(Cache& cache, std::shared_mutex& cacheMutex,
