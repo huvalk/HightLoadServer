@@ -30,7 +30,7 @@ void Client::run(int64_t& m_threadsActive, std::mutex& threadMutex,
             boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());
         } else if (RequestProcessor::parseRequest(m_buffer.elems, m_method, m_uri, m_version, m_headers))
         {
-            response = ResponseProcessor::startProcessing(m_method, m_rootPath, m_uri, m_version);
+            response = ResponseProcessor::startProcessing(m_method, m_rootPath + m_uri, m_version);
             addCache(cache, cacheMutex, m_buffer, response);
 
             boost::asio::write(m_socket, boost::asio::buffer(response), boost::asio::transfer_all());

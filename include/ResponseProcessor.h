@@ -3,25 +3,16 @@
 #include "Header.h"
 #include <vector>
 
-// TODO переписать !!!
 class ResponseProcessor {
 public:
-    static std::string
-    startProcessing(const std::string &method, const std::string document_root, std::string &uri, char version);
+    // TODO небыло ссылки
+    static std::string startProcessing(const std::string& method, std::string url, char version);
 
 private:
-    static std::string processMethod(const std::string &method, const std::string &document_root, std::string &uri,
-                                     std::vector<Header> &headers);
-
-    static std::string processUnknownMethod();
-
-    static void initHeaders(std::vector<Header> &headers);
-
-    static void writeHeaders(const std::string &method, const std::string &code, const std::string &path,
-                             std::string &response_buffer,
-                             const std::vector<Header> &headers);
-
-    static std::string getDate();
-
-    static std::string getContentType(const std::string &extension);
+    static int processMethod(const std::string& method, std::string& url, std::vector<Header>& headers);
+    static void processHeaders(const std::string& method, const int code, const std::string& path,
+                             std::string& responseBuffer,
+                             const std::vector<Header>& headers);
+    static std::string processDate();
+    static std::string processContentType(const std::string& extension);
 };

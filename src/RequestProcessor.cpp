@@ -68,7 +68,6 @@ bool RequestProcessor::parseRequest(char* const request, std::string &method, st
 
                 // http (проигнорирован)
             case 2:
-                // TODO проверить, всегда ли есть точка
             {
                 // TODO нет проверки на ноль
                 while (*curPos != '.')
@@ -168,7 +167,6 @@ bool RequestProcessor::parseRequest(char* const request, std::string &method, st
             }
         }
     }
-
 
     return state == 7;
 }

@@ -3,7 +3,6 @@
 #include "Header.h"
 #include <vector>
 
-// TODO переписать !!!
 class RequestProcessor
 {
 public:
