@@ -7,14 +7,15 @@
 std::string ResponseProcessor::startProcessing(const std::string& method, std::string url, char version)
 {
     std::string response = "HTTP/1.";
+    std::string headers;
     response.push_back(version);
     response.push_back(' ');
 
-    std::vector<Header> headers;
-    headers.push_back(Header{"Server", "nginx"});
-    headers.push_back(Header{"Date", processDate()});
-    headers.push_back(Header{"Connection", "Closed"});
-
+    headers.append("Server: nginx\r\n");
+    headers.append("Date: ");
+    headers.append(processDate());
+    headers.append("\r\n");
+    headers.append("Connection: Closed\r\n");
     int responseCode = 500;
 
     if (method == "GET" || method == "HEAD") {
@@ -55,13 +56,13 @@ std::string ResponseProcessor::startProcessing(const std::string& method, std::s
         }
     }
 
-    processHeaders(method, responseCode, url, response, headers);
+    response.append(std::move(headers));
+    processHeaders(method, responseCode, url, response);
 
     return std::move(response);
 }
 
-int ResponseProcessor::processMethod(const std::string& method, std::string& url,
-                                             std::vector<Header>& headers)
+int ResponseProcessor::processMethod(const std::string& method, std::string& url, std::string& headers)
 {
     bool indexFile = false;
     if (url[url.size() - 1] == '/')
@@ -78,8 +79,12 @@ int ResponseProcessor::processMethod(const std::string& method, std::string& url
         size_t delim = url.find_last_of('.');
         std::string content_type = processContentType(url.substr(delim + 1, url.length() - delim));
 
-        headers.push_back(Header{"Content-Type", content_type});
-        headers.push_back(Header{"Content-Length", std::to_string(std::filesystem::file_size(url))});
+        headers.append("Content-Type: ");
+        headers.append(content_type);
+        headers.append("\r\n");
+        headers.append("Content-Length: ");
+        headers.append(std::to_string(std::filesystem::file_size(url)));
+        headers.append("\r\n");
 
         return 200;
     } else if (notOutOfRoot && indexFile)
@@ -91,27 +96,19 @@ int ResponseProcessor::processMethod(const std::string& method, std::string& url
 }
 
 void ResponseProcessor::processHeaders(const std::string& method, const int code, const std::string& path,
-                                     std::string& response_buffer, const std::vector<Header>& headers)
+                                     std::string& responseBuffer)
 {
-    for (const auto& header : headers)
-    {
-        response_buffer.append(std::move(header.key));
-        response_buffer.append(": ");
-        response_buffer.append(header.value);
-        response_buffer.append("\r\n");
-    }
-
     if (method == "HEAD") {
-        response_buffer.append("\r\n");
+        responseBuffer.append("\r\n");
     } else if (method == "GET" && code == 200) {
-        response_buffer.append("\r\n");
+        responseBuffer.append("\r\n");
 
         // TODO mutex was here
         std::ifstream file(path.c_str(), std::ios::in | std::ios::binary);
-        char file_buffer[MAX_FILE_BUFFER_SIZE];
+        char fileBuffer[MAX_FILE_BUFFER_SIZE];
 
-        while (file.read(file_buffer, sizeof(file_buffer)).gcount() > 0) {
-            response_buffer.append(file_buffer, file.gcount());
+        while (file.read(fileBuffer, sizeof(fileBuffer)).gcount() > 0) {
+            responseBuffer.append(fileBuffer, file.gcount());
         }
     }
 }
@@ -119,11 +116,11 @@ void ResponseProcessor::processHeaders(const std::string& method, const int code
 std::string ResponseProcessor::processDate()
 {
     std::time_t timer = std::time(nullptr);
-    char buffer_time[256];
-    auto time_now = std::strftime(buffer_time, sizeof(buffer_time), "%a, %d %b %Y %H:%M:%S GMT",
-                                  std::localtime(&timer));
+    char bufferTime[256];
+    auto timeNow = std::strftime(bufferTime, sizeof(bufferTime), "%a, %d %b %Y %H:%M:%S GMT",
+                                 std::localtime(&timer));
 
-    return std::string(buffer_time, time_now);
+    return std::string(bufferTime, timeNow);
 }
 
 std::string ResponseProcessor::processContentType(const std::string& extension)
