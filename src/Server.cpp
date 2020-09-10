@@ -33,7 +33,7 @@ void Server::acceptConnection(const boost::system::error_code &error)
     if (!error) {
         while (m_threadsActive >= m_conf->getThreadLimit())
         {
-            std::cout << "loop" << m_threadsActive << std::endl << std::flush;
+//            std::cout << "loop" << m_threadsActive << std::endl << std::flush;
         }
 
         m_threadMutex.lock();
