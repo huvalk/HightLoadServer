@@ -5,7 +5,6 @@
 
 class ResponseProcessor {
 public:
-    // TODO небыло ссылки
     static std::string startProcessing(const std::string& method, std::string url, char version);
 
 private:
