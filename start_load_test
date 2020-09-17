@@ -1,0 +1,10 @@
+#!/bin/sh
+# 1 2 8 256
+# cmake-build-debug/highload httpd.conf 8080 & ./start_diff_test $!
+
+echo '' > threads_active
+ab -c 100 -n 6000 http://localhost:8080/httptest/wikipedia_russia.html > result_my &
+while kill -0 $!; do
+  ps -o nlwp $1 >> threads_active
+done
+kill -9 $1

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ab -c 100 -n 6000 http://localhost:8080/httptest/wikipedia_russia.html > result_my
+sudo service nginx start
+ab -c 100 -n 6000 http://localhost:80/httptest/wikipedia_russia.html > result_nginx
+diff result_my result_nginx

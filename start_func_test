@@ -1,0 +1,9 @@
+#!/bin/sh
+#~/http-test-suite/httptest.py
+
+sudo service nginx stop
+sudo docker build -t kuklin-httpd  .
+sudo docker run -t -p 80:80 kuklin-httpd &
+sleep 5
+~/http-test-suite/httptest.py
+docker stop $(docker ps -a -q)
