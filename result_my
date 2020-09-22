@@ -13,30 +13,30 @@ Document Path:          /httptest/wikipedia_russia.html
 Document Length:        954824 bytes
 
 Concurrency Level:      100
-Time taken for tests:   5.032 seconds
-Complete requests:      6000
+Time taken for tests:   57.828 seconds
+Complete requests:      60000
 Failed requests:        0
-Total transferred:      5729784000 bytes
-HTML transferred:       5728944000 bytes
-Requests per second:    1192.40 [#/sec] (mean)
-Time per request:       83.864 [ms] (mean)
-Time per request:       0.839 [ms] (mean, across all concurrent requests)
-Transfer rate:          1112013.36 [Kbytes/sec] received
+Total transferred:      57297840000 bytes
+HTML transferred:       57289440000 bytes
+Requests per second:    1037.56 [#/sec] (mean)
+Time per request:       96.380 [ms] (mean)
+Time per request:       0.964 [ms] (mean, across all concurrent requests)
+Transfer rate:          967609.71 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    1   1.0      1      10
-Processing:     9   82  11.2     79     142
-Waiting:        0    4   6.0      3      66
-Total:         19   84  11.4     80     146
+Connect:        0    1   0.6      1      13
+Processing:     3   95   8.9     95     203
+Waiting:        0    6  13.9      3     142
+Total:          7   96   9.0     96     203
 
 Percentage of the requests served within a certain time (ms)
-  50%     80
-  66%     86
-  75%     89
-  80%     91
-  90%     96
-  95%    101
-  98%    121
-  99%    127
- 100%    146 (longest request)
+  50%     96
+  66%     99
+  75%    101
+  80%    102
+  90%    105
+  95%    108
+  98%    114
+  99%    120
+ 100%    203 (longest request)
